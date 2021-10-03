@@ -1,0 +1,850 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+    <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
+    
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>100 Argentinos Dicen</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Kanit:ital,wght@0,900;1,900&family=Montserrat:ital,wght@0,900;1,900&family=Public+Sans:ital,wght@0,900;1,900&family=Roboto:ital,wght@0,900;1,900&family=Varela+Round&display=swap" rel="stylesheet">
+    <script src="https://smtpjs.com/v3/smtp.js"></script>
+<style>
+    #tablaopciones {
+        margin: 30px auto;
+        height: 500px;
+        padding: 200px;
+        text-align: center;
+        border: 5px solid black;
+        background-color: #0D308C;
+        
+    }
+
+    #puntajeparcial {
+        font-size: 80px;
+        vertical-align: middle;
+        background-image: -webkit-gradient( linear, left top, left bottom, color-stop(0, #ffffff), color-stop(0.5, #d8d8d8), color-stop(0.8, #b0b0b0) );
+    background-image: gradient( linear, left top, left bottom, color-stop(0, #ffffff), color-stop(0.5, #d8d8d8), color-stop(0.8, #b0b0b0) );
+    color:transparent;
+    -webkit-background-clip: text;
+    background-clip: text;
+    font-family: 'Montserrat', sans-serif;
+        font-weight: bold;
+        font-style: italic;
+        height: 100px !important;
+    }
+
+    .claseopcion {
+        font-size: 70px;
+        border: 5px solid black;
+    background-image: -webkit-gradient( linear, left top, left bottom, color-stop(0, #ffffff), color-stop(0.5, #d8d8d8), color-stop(0.8, #b0b0b0) );
+    background-image: gradient( linear, left top, left bottom, color-stop(0, #ffffff), color-stop(0.5, #d8d8d8), color-stop(0.8, #b0b0b0) );
+    color:transparent;
+    -webkit-background-clip: text;
+    background-clip: text;
+    font-family: 'Montserrat', sans-serif;
+        font-weight: bold;
+        font-style: italic;
+        width: 500px !important;
+        height: 100px !important;
+    }
+
+    .claserespuesta {
+        font-size: 50px;
+        border: 5px solid black;
+        background: rgb(19,236,159);
+        background: linear-gradient(120deg, rgba(19,236,159,1) 0%, rgba(15,229,137,1) 78%, rgba(15,194,131,1) 100%);
+        font-family: 'Bebas Neue', sans-serif;
+        width: 500px !important;
+        height: 111.8px !important;
+    }
+
+    .puntajerespuesta2cifras {
+        float: right;
+        padding-left: 5px;
+        padding-right: 5px;
+        border-left: 7px solid black;
+        font-weight: bold;
+    }
+
+    .puntajerespuesta1cifra {
+        float: right;
+        padding-left: 15px;
+        padding-right: 15px;
+        border-left: 7px solid black;
+        font-weight: bold;
+    }
+
+    .cruz1UnaCruz {
+        position: absolute;
+        top: 325px;
+        left: 625px;
+        transform: scale(3, 3);
+        visibility: hidden;
+    }
+
+    .cruz1DosCruces {
+        position: absolute;
+        left: -1000px;
+        top: 325px;
+        transform: scale(3, 3);
+    }
+
+    .cruz2DosCruces {
+        position: absolute;
+        right: -1000px;
+        top: 325px;
+        transform: scale(3, 3);
+        transition: opacity 1s ease-out;
+        opacity: 0;
+        height: 0;
+        overflow: hidden;
+    }
+
+    .cruz1TresCruces {
+        position: absolute;
+        left: -1000px;
+        top: 325px;
+        transform: scale(3, 3);
+    }
+
+    .cruz2TresCruces {
+        position: absolute;
+        right: -1000px;
+        top: 325px; 
+        transform: scale(3, 3);
+    }
+
+    .cruz3TresCruces {
+        position: absolute;
+        top: 325px;
+        left: 625px;
+        transform: scale(3, 3);
+        visibility: hidden;
+    }
+
+    #textoPregunta {
+        font-size: 50px;
+        font-family: 'Bebas Neue', sans-serif;
+        margin: 30px auto;
+        text-align: center;
+    }
+
+    .seleccionJuego {
+        border-radius: 100px;
+        border: 1px solid black;
+        font-size: 20px;
+        background-color: #2b244e;
+        font-family: 'Montserrat', sans-serif;
+        padding: 20px 0;
+        color: #FFFFFF;
+        text-align: center;
+        margin: 10px 0;
+        cursor: pointer;
+    }
+
+    #enterMail {
+        width: 80%;
+        float: left;
+        margin-right: 10px;
+        border-radius: 30px;
+        padding: 10px;
+    }
+
+    .selected {
+        background-color: #FFFFFF;
+        color: #2b244e;
+    }
+</style>            
+</head>
+<body>
+        <!-- Modal -->
+        <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-scrollable">
+            <div class="modal-content">
+                <div class="modal-header">
+                <h5 class="modal-title" id="staticBackdropLabel">Nuevo Juego</h5>
+                </div>
+                <div class="modal-body">
+                <div class="seleccionJuego" id='juego1'> Juego 1 individual </div>
+                <div class="seleccionJuego" id='juego2'> Juego 2 individual </div>
+                <div class="seleccionJuego" id='juego3'> Juego 1 grupal </div>
+                <div class="seleccionJuego" id='juego4'> Juego 2 grupal </div>
+                <div class="seleccionJuego" id='juego5'> Juego 1 encuesta </div>
+                <div class="seleccionJuego" id='juego6'> Juego 2 encuesta </div>
+                <div class="seleccionJuego" id='juego7'> Juego 1 programa </div>
+                <div class="seleccionJuego" id='juego8'> Juego 2 programa </div>
+                </div>
+                <div class="modal-footer">
+                <input type="text" id='enterMail' placeholder="Mail de la persona que conduce">
+                <button type="button" class="btn btn-primary" id='botonJuego'>Jugar</button>
+                </div>
+            </div>
+            </div>
+        </div>
+    <p id='textoPregunta'></p>
+    <table id="tablaopciones">
+        <tr>
+        <th id="puntajeparcial" colspan="2">
+            <span>0</span>
+        </th>
+    </tr>
+    <tr>
+        <td id="opcion1"class="claseopcion">1</td>
+        <td id="opcion5"class="claseopcion">5</td>
+    </tr>
+    <tr>
+        <td id="opcion2" class="claseopcion">2</td>
+        <td id="opcion6"class="claseopcion">6</td>
+    </tr>
+    <tr>
+        <td id="opcion3" class="claseopcion">3</td>
+        <td id="opcion7" class="claseopcion"></td>
+    </tr>
+    <tr>
+        <td id="opcion4" class="claseopcion">4</td>
+        <td id="opcion8" class="claseopcion"></td>
+    </tr>
+    <input type="hidden" id="inputTeclado">
+    </table>
+    <div id='cruces'>
+        <span class="cruz"><img src="cruz.png" id="cruz1" class="cruz1UnaCruz"></span>
+        <span class="cruz"><img src="cruz.png" id="cruz2" class="cruz2DosCruces"></span>
+        <span class="cruz"><img src="cruz.png" id="cruz3" class="cruz3TresCruces"></span>
+    </div>
+    <div id='output'></div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <script type="text/javascript">
+    let inputHabilitado;
+    let numeroRonda = 1;
+    let audioCorrecta = new Audio('correcta.mp3');
+    let audioCruz = new Audio('cruz.mp3');
+    let audioPulsador = new Audio('pulsador.mp3');
+    let elementos;
+    let prefijo = 'opcion';
+    let puntosRonda = 0;
+    let crucesRonda = 0;
+    let pregunta;
+    let opciones;
+    let puntajes;
+    let cuerpoMail;
+    
+    $(window).on('load', function(){ 
+        $('#staticBackdrop').modal('toggle');
+        inputHabilitado = false;
+    }); 
+    var x = document.getElementsByClassName('seleccionJuego');
+    var idJuego;
+    for (var i = 0; i < x.length; i++) {
+        x[i].addEventListener("click", function(){
+
+        var selectedEl = document.querySelector(".selected");
+        if(selectedEl){
+            selectedEl.classList.remove("selected");
+        }
+        this.classList.add("selected");
+        idJuego = this.id;
+        }, false);;
+    }
+
+    $('#botonJuego').click(function(){
+        console.log($('#enterMail').val());
+        console.log(idJuego);
+        $('#staticBackdrop').modal('toggle');
+        var s = document.createElement("script");
+        s.type = "text/javascript";
+        s.src = idJuego + '.js';
+        s.innerHTML = null;
+        s.id = "scriptJuego";
+        document.getElementById("output").innerHTML = "";
+        document.getElementById("output").appendChild(s);
+        inputHabilitado = true;
+        setTimeout(function(){ 
+            actualizarPreguntas();
+        }, 100);
+        setTimeout(function(){ 
+            Email.send({
+            SecureToken: "b97b2e3e-34db-405e-a8ee-d8248edb823b",
+            To : $('#enterMail').val(),
+            From : "100argdicenapp@gmail.com",
+            Subject : "A jugar 100 Argentinos Dicen!",
+            Body : cuerpoMail
+        }).then(
+            message => alert('Se envió el email a la persona que va a conducir. Chequear carpeta de spam/correo no deseado.')
+        );
+        }, 200);
+    });
+
+    function actualizarPreguntas(){      
+        console.log(preguntas); 
+        pregunta = preguntas[numeroRonda].pregunta;
+        opciones = preguntas[numeroRonda].opciones;
+        puntajes = preguntas[numeroRonda].puntajes;
+        console.log(pregunta);
+        console.log(opciones);
+        console.log(puntajes);
+
+        cuerpoMail = "<h1> Bienvenidos a 100 Argentinos Dicen! </h1> <p> Si estás viendo este mail, vas a conducir el juego. Eso significa que <b> no vas a jugar para ningún equipo, </b> sino que vas a revelar las respuestas y las opciones de las preguntas hechas a 100 argentinos! Cada juego tiene 10 preguntas, 5 de las rondas familiares y 5 del dinero rápido. </p><p> <b> Los controles del juego son: </b><ul><li>Barra espaciadora: sonido de pulsador</li><li>Enter: revela la pregunta</li><li>Números 1 a 8 del teclado: revelan la opción con el número correspondiente</li><li>Flecha derecha: pasa a la siguiente pregunta</li><li>Cualquier otra tecla: agrega una cruz</li></ul></p> <p><b>Las preguntas para el juego que elegiste son:</b></p><ul><li style='margin: 15px 0'>PREGUNTA 1: " + preguntas[1].pregunta + "<ul><li>Opción 1: " + preguntas[1].opciones[0] + " - " + preguntas[1].puntajes[0] + "</li><li>Opción 2: " + preguntas[1].opciones[1] + " - " + preguntas[1].puntajes[1] + "</li><li>Opción 3: " + preguntas[1].opciones[2] + " - " + preguntas[1].puntajes[2] + "</li><li>Opción 4: " + preguntas[1].opciones[3] + " - " + preguntas[1].puntajes[3] + "</li><li>Opción 5: " + preguntas[1].opciones[4] + " - " + preguntas[1].puntajes[4] + "</li><li>Opción 6: " + preguntas[1].opciones[5] + " - " + preguntas[1].puntajes[5] + "</li><li>Opción 7: " + preguntas[1].opciones[6] + " - " + preguntas[1].puntajes[6] + "</li><li>Opción 8: " + preguntas[1].opciones[7] + " - " + preguntas[1].puntajes[7] + "</li></ul></li><li style='margin: 15px 0'>PREGUNTA 2: " + preguntas[2].pregunta + "<ul><li>Opción 1: " + preguntas[2].opciones[0] + " - " + preguntas[2].puntajes[0] + "</li><li>Opción 2: " + preguntas[2].opciones[1] + " - " + preguntas[2].puntajes[1] + "</li><li>Opción 3: " + preguntas[2].opciones[2] + " - " + preguntas[2].puntajes[2] + "</li><li>Opción 4: " + preguntas[2].opciones[3] + " - " + preguntas[2].puntajes[3] + "</li><li>Opción 5: " + preguntas[2].opciones[4] + " - " + preguntas[2].puntajes[4] + "</li><li>Opción 6: " + preguntas[2].opciones[5] + " - " + preguntas[2].puntajes[5] + "</li><li>Opción 7: " + preguntas[2].opciones[6] + " - " + preguntas[2].puntajes[6] + "</li><li>Opción 8: " + preguntas[2].opciones[7] + " - " + preguntas[2].puntajes[7] + "</li></ul></li><li style='margin: 15px 0'>PREGUNTA 3: " + preguntas[3].pregunta + "<ul><li>Opción 1: " + preguntas[3].opciones[0] + " - " + preguntas[3].puntajes[0] + "</li><li>Opción 2: " + preguntas[3].opciones[1] + " - " + preguntas[3].puntajes[1] + "</li><li>Opción 3: " + preguntas[3].opciones[2] + " - " + preguntas[3].puntajes[2] + "</li><li>Opción 4: " + preguntas[3].opciones[3] + " - " + preguntas[3].puntajes[3] + "</li><li>Opción 5: " + preguntas[3].opciones[4] + " - " + preguntas[3].puntajes[4] + "</li><li>Opción 6: " + preguntas[3].opciones[5] + " - " + preguntas[3].puntajes[5] + "</li><li>Opción 7: " + preguntas[3].opciones[6] + " - " + preguntas[3].puntajes[6] + "</li><li>Opción 8: " + preguntas[3].opciones[7] + " - " + preguntas[3].puntajes[7] + "</li></ul></li><li style='margin: 15px 0'>PREGUNTA 4: " + preguntas[4].pregunta + " <b>(DUPLICA PUNTAJE)</b><ul><li>Opción 1: " + preguntas[4].opciones[0] + " - " + preguntas[4].puntajes[0] + "</li><li>Opción 2: " + preguntas[4].opciones[1] + " - " + preguntas[4].puntajes[1] + "</li><li>Opción 3: " + preguntas[4].opciones[2] + " - " + preguntas[4].puntajes[2] + "</li><li>Opción 4: " + preguntas[4].opciones[3] + " - " + preguntas[4].puntajes[3] + "</li><li>Opción 5: " + preguntas[4].opciones[4] + " - " + preguntas[4].puntajes[4] + "</li><li>Opción 6: " + preguntas[4].opciones[5] + " - " + preguntas[4].puntajes[5] + "</li><li>Opción 7: " + preguntas[4].opciones[6] + " - " + preguntas[4].puntajes[6] + "</li><li>Opción 8: " + preguntas[4].opciones[7] + " - " + preguntas[4].puntajes[7] + "</li></ul></li><li style='margin: 15px 0'>PREGUNTA 5: " + preguntas[5].pregunta + " <b>(TRIPLICA PUNTAJE)</b><ul><li>Opción 1: " + preguntas[5].opciones[0] + " - " + preguntas[5].puntajes[0] + "</li><li>Opción 2: " + preguntas[5].opciones[1] + " - " + preguntas[5].puntajes[1] + "</li><li>Opción 3: " + preguntas[5].opciones[2] + " - " + preguntas[5].puntajes[2] + "</li><li>Opción 4: " + preguntas[5].opciones[3] + " - " + preguntas[5].puntajes[3] + "</li><li>Opción 5: " + preguntas[5].opciones[4] + " - " + preguntas[5].puntajes[4] + "</li><li>Opción 6: " + preguntas[5].opciones[5] + " - " + preguntas[5].puntajes[5] + "</li><li>Opción 7: " + preguntas[5].opciones[6] + " - " + preguntas[5].puntajes[6] + "</li><li>Opción 8: " + preguntas[5].opciones[7] + " - " + preguntas[5].puntajes[7] + "</li></ul></li></ul><p><b>DINERO RÁPIDO:</b> en esta ronda vas a tener que hacer las preguntas muy rápidamente a ambas personas que respondan por el equipo ganador. Luego, vas a necesitar acordarte de las 5 respuestas de cada jugador para introducirlas manualmente en cada uno de los lugares del dinero rápido. <b> Es muy importante que luego de ingresar cada una de las respuestas aprietes la tecla Enter. </b> Finalmente, debés revelar qué número de opción era cada una de esas respuestas de la misma manera: con los números 1 a 8 del teclado, o cualquier otra tecla si esa respuesta no es ninguna de las 8 más populares. </p><ul><li style='margin: 5px 0'>PREGUNTA 1: " + preguntas['dinerorapido']['pregunta1'].pregunta + "</li><li style='margin: 5px 0'>PREGUNTA 2: " + preguntas['dinerorapido']['pregunta2'].pregunta + "</li><li style='margin: 5px 0'>PREGUNTA 3: " + preguntas['dinerorapido']['pregunta3'].pregunta + "</li><li style='margin: 5px 0'>PREGUNTA 4: " + preguntas['dinerorapido']['pregunta4'].pregunta + "</li><li style='margin: 5px 0'>PREGUNTA 5: " + preguntas['dinerorapido']['pregunta5'].pregunta + "</li></ul><p> Ahora que ya fueron respondidas las preguntas, estas son las opciones: <ul><li style='margin: 15px 0'>PREGUNTA 1: " + preguntas['dinerorapido']['pregunta1'].pregunta + "<ul><li>Opción 1: " + preguntas['dinerorapido']['pregunta1'].opciones[0] + " - " + preguntas['dinerorapido']['pregunta1'].puntajes[0] + "</li><li>Opción 2: " + preguntas['dinerorapido']['pregunta1'].opciones[1] + " - " + preguntas['dinerorapido']['pregunta1'].puntajes[1] + "</li><li>Opción 3: " + preguntas['dinerorapido']['pregunta1'].opciones[2] + " - " + preguntas['dinerorapido']['pregunta1'].puntajes[2] + "</li><li>Opción 4: " + preguntas['dinerorapido']['pregunta1'].opciones[3] + " - " + preguntas['dinerorapido']['pregunta1'].puntajes[3] + "</li><li>Opción 5: " + preguntas['dinerorapido']['pregunta1'].opciones[4] + " - " + preguntas['dinerorapido']['pregunta1'].puntajes[4] + "</li><li>Opción 6: " + preguntas['dinerorapido']['pregunta1'].opciones[5] + " - " + preguntas['dinerorapido']['pregunta1'].puntajes[5] + "</li><li>Opción 7: " + preguntas['dinerorapido']['pregunta1'].opciones[6] + " - " + preguntas['dinerorapido']['pregunta1'].puntajes[6] + "</li><li>Opción 8: " + preguntas['dinerorapido']['pregunta1'].opciones[7] + " - " + preguntas['dinerorapido']['pregunta1'].puntajes[7] + "</li></ul></li><li style='margin: 15px 0'>PREGUNTA 2: " + preguntas['dinerorapido']['pregunta2'].pregunta + "<ul><li>Opción 1: " + preguntas['dinerorapido']['pregunta2'].opciones[0] + " - " + preguntas['dinerorapido']['pregunta2'].puntajes[0] + "</li><li>Opción 2: " + preguntas['dinerorapido']['pregunta2'].opciones[1] + " - " + preguntas['dinerorapido']['pregunta2'].puntajes[1] + "</li><li>Opción 3: " + preguntas['dinerorapido']['pregunta2'].opciones[2] + " - " + preguntas['dinerorapido']['pregunta2'].puntajes[2] + "</li><li>Opción 4: " + preguntas['dinerorapido']['pregunta2'].opciones[3] + " - " + preguntas['dinerorapido']['pregunta2'].puntajes[3] + "</li><li>Opción 5: " + preguntas['dinerorapido']['pregunta2'].opciones[4] + " - " + preguntas['dinerorapido']['pregunta2'].puntajes[4] + "</li><li>Opción 6: " + preguntas['dinerorapido']['pregunta2'].opciones[5] + " - " + preguntas['dinerorapido']['pregunta2'].puntajes[5] + "</li><li>Opción 7: " + preguntas['dinerorapido']['pregunta2'].opciones[6] + " - " + preguntas['dinerorapido']['pregunta2'].puntajes[6] + "</li><li>Opción 8: " + preguntas['dinerorapido']['pregunta2'].opciones[7] + " - " + preguntas['dinerorapido']['pregunta2'].puntajes[7] + "</li></ul></li><li style='margin: 15px 0'>PREGUNTA 3: " + preguntas['dinerorapido']['pregunta3'].pregunta + "<ul><li>Opción 1: " + preguntas['dinerorapido']['pregunta3'].opciones[0] + " - " + preguntas['dinerorapido']['pregunta3'].puntajes[0] + "</li><li>Opción 2: " + preguntas['dinerorapido']['pregunta3'].opciones[1] + " - " + preguntas['dinerorapido']['pregunta3'].puntajes[1] + "</li><li>Opción 3: " + preguntas['dinerorapido']['pregunta3'].opciones[2] + " - " + preguntas['dinerorapido']['pregunta3'].puntajes[2] + "</li><li>Opción 4: " + preguntas['dinerorapido']['pregunta3'].opciones[3] + " - " + preguntas['dinerorapido']['pregunta3'].puntajes[3] + "</li><li>Opción 5: " + preguntas['dinerorapido']['pregunta3'].opciones[4] + " - " + preguntas['dinerorapido']['pregunta3'].puntajes[4] + "</li><li>Opción 6: " + preguntas['dinerorapido']['pregunta3'].opciones[5] + " - " + preguntas['dinerorapido']['pregunta3'].puntajes[5] + "</li><li>Opción 7: " + preguntas['dinerorapido']['pregunta3'].opciones[6] + " - " + preguntas['dinerorapido']['pregunta3'].puntajes[6] + "</li><li>Opción 8: " + preguntas['dinerorapido']['pregunta3'].opciones[7] + " - " + preguntas['dinerorapido']['pregunta3'].puntajes[7] + "</li></ul></li><li style='margin: 15px 0'>PREGUNTA 4: " + preguntas['dinerorapido']['pregunta4'].pregunta + "<ul><li>Opción 1: " + preguntas['dinerorapido']['pregunta4'].opciones[0] + " - " + preguntas['dinerorapido']['pregunta4'].puntajes[0] + "</li><li>Opción 2: " + preguntas['dinerorapido']['pregunta4'].opciones[1] + " - " + preguntas['dinerorapido']['pregunta4'].puntajes[1] + "</li><li>Opción 3: " + preguntas['dinerorapido']['pregunta4'].opciones[2] + " - " + preguntas['dinerorapido']['pregunta4'].puntajes[2] + "</li><li>Opción 4: " + preguntas['dinerorapido']['pregunta4'].opciones[3] + " - " + preguntas['dinerorapido']['pregunta4'].puntajes[3] + "</li><li>Opción 5: " + preguntas['dinerorapido']['pregunta4'].opciones[4] + " - " + preguntas['dinerorapido']['pregunta4'].puntajes[4] + "</li><li>Opción 6: " + preguntas['dinerorapido']['pregunta4'].opciones[5] + " - " + preguntas['dinerorapido']['pregunta4'].puntajes[5] + "</li><li>Opción 7: " + preguntas['dinerorapido']['pregunta4'].opciones[6] + " - " + preguntas['dinerorapido']['pregunta4'].puntajes[6] + "</li><li>Opción 8: " + preguntas['dinerorapido']['pregunta4'].opciones[7] + " - " + preguntas['dinerorapido']['pregunta4'].puntajes[7] + "</li></ul></li><li style='margin: 15px 0'>PREGUNTA 5: " + preguntas['dinerorapido']['pregunta5'].pregunta + "<ul><li>Opción 1: " + preguntas['dinerorapido']['pregunta5'].opciones[0] + " - " + preguntas['dinerorapido']['pregunta5'].puntajes[0] + "</li><li>Opción 2: " + preguntas['dinerorapido']['pregunta5'].opciones[1] + " - " + preguntas['dinerorapido']['pregunta5'].puntajes[1] + "</li><li>Opción 3: " + preguntas['dinerorapido']['pregunta5'].opciones[2] + " - " + preguntas['dinerorapido']['pregunta5'].puntajes[2] + "</li><li>Opción 4: " + preguntas['dinerorapido']['pregunta5'].opciones[3] + " - " + preguntas['dinerorapido']['pregunta5'].puntajes[3] + "</li><li>Opción 5: " + preguntas['dinerorapido']['pregunta5'].opciones[4] + " - " + preguntas['dinerorapido']['pregunta5'].puntajes[4] + "</li><li>Opción 6: " + preguntas['dinerorapido']['pregunta5'].opciones[5] + " - " + preguntas['dinerorapido']['pregunta5'].puntajes[5] + "</li><li>Opción 7: " + preguntas['dinerorapido']['pregunta5'].opciones[6] + " - " + preguntas['dinerorapido']['pregunta5'].puntajes[6] + "</li><li>Opción 8: " + preguntas['dinerorapido']['pregunta5'].opciones[7] + " - " + preguntas['dinerorapido']['pregunta5'].puntajes[7] + "</li></ul></li></ul>";
+    }
+
+    
+
+    document.onkeydown = zx;
+    function zx(e){
+        console.log(e.key);
+        if (inputHabilitado == true){
+        switch (e.key){
+            case '1':
+                $('#opcion1').css('transform', 'rotateX(-180deg)');
+                $('#opcion1').css('transition', 'transform 150ms ease');
+                audioCorrecta.play();
+                setTimeout(function(){ 
+                    $('#opcion1').removeClass('claseopcion');
+                    $('#opcion1').addClass('claserespuesta');
+                    if (puntajes[0].length === 2){
+                        $('#opcion1').html(opciones[0] + '<span class="puntajerespuesta2cifras">' + puntajes[0] + '</span>');
+                    } else if (puntajes[0].length === 1){
+                        $('#opcion1').html(opciones[0] + '<span class="puntajerespuesta1cifra">' + puntajes[0] + '</span>'); 
+                    }
+                    $('#opcion1').css('height', '111.8px !important'); 
+                    $('#opcion1').css('transform', 'rotateX(-360deg)'); 
+                    $('#opcion1').css('transition', 'transform 150ms ease');
+                }, 150);
+                if (numeroRonda === 4){
+                    puntosRonda += parseInt(puntajes[0]) * 2;
+                } else if (numeroRonda === 5){
+                    puntosRonda += parseInt(puntajes[0]) * 3;
+                } else {
+                    puntosRonda += parseInt(puntajes[0]);
+                }
+                $('#puntajeparcial').html(puntosRonda);
+                break;
+                case '2':
+                $('#opcion2').css('transform', 'rotateX(-180deg)');
+                $('#opcion2').css('transition', 'transform 150ms ease');
+                audioCorrecta.play();
+                setTimeout(function(){ 
+                    $('#opcion2').removeClass('claseopcion');
+                    $('#opcion2').addClass('claserespuesta');
+                    if (puntajes[1].length === 2){
+                        $('#opcion2').html(opciones[1] + '<span class="puntajerespuesta2cifras">' + puntajes[1] + '</span>');
+                    } else if (puntajes[1].length === 1){
+                        $('#opcion2').html(opciones[1] + '<span class="puntajerespuesta1cifra">' + puntajes[1] + '</span>'); 
+                    }
+                    $('#opcion2').css('height', '111.8px !important'); 
+                    $('#opcion2').css('transform', 'rotateX(-360deg)'); 
+                    $('#opcion2').css('transition', 'transform 150ms ease');
+                }, 150);
+                if (numeroRonda === 4){
+                    puntosRonda += parseInt(puntajes[1]) * 2;
+                } else if (numeroRonda === 5){
+                    puntosRonda += parseInt(puntajes[1]) * 3;
+                } else {
+                    puntosRonda += parseInt(puntajes[1]);
+                }
+                $('#puntajeparcial').html(puntosRonda);
+                break;
+                case '3':
+                $('#opcion3').css('transform', 'rotateX(-180deg)');
+                $('#opcion3').css('transition', 'transform 150ms ease');
+                audioCorrecta.play();
+                setTimeout(function(){ 
+                    $('#opcion3').removeClass('claseopcion');
+                    $('#opcion3').addClass('claserespuesta');
+                    if (puntajes[2].length === 2){
+                        $('#opcion3').html(opciones[2] + '<span class="puntajerespuesta2cifras">' + puntajes[2] + '</span>');
+                    } else if (puntajes[2].length === 1){
+                        $('#opcion3').html(opciones[2] + '<span class="puntajerespuesta1cifra">' + puntajes[2] + '</span>'); 
+                    }
+                    $('#opcion3').css('height', '111.8px !important'); 
+                    $('#opcion3').css('transform', 'rotateX(-360deg)'); 
+                    $('#opcion3').css('transition', 'transform 150ms ease');
+                }, 150);
+                if (numeroRonda === 4){
+                    puntosRonda += parseInt(puntajes[2]) * 2;
+                } else if (numeroRonda === 5){
+                    puntosRonda += parseInt(puntajes[2]) * 3;
+                } else {
+                    puntosRonda += parseInt(puntajes[2]);
+                }
+                $('#puntajeparcial').html(puntosRonda);
+                break;
+                case '4':
+                $('#opcion4').css('transform', 'rotateX(-180deg)');
+                $('#opcion4').css('transition', 'transform 150ms ease');
+                audioCorrecta.play();
+                setTimeout(function(){ 
+                    
+                    $('#opcion4').removeClass('claseopcion');
+                    $('#opcion4').addClass('claserespuesta');
+                    if (puntajes[3].length === 2){
+                        $('#opcion4').html(opciones[3] + '<span class="puntajerespuesta2cifras">' + puntajes[3] + '</span>');
+                    } else if (puntajes[3].length === 1){
+                        $('#opcion4').html(opciones[3] + '<span class="puntajerespuesta1cifra">' + puntajes[3] + '</span>'); 
+                    }
+                    $('#opcion4').css('height', '111.8px !important'); 
+                    $('#opcion4').css('transform', 'rotateX(-360deg)'); 
+                    $('#opcion4').css('transition', 'transform 150ms ease');
+                }, 150);
+                if (numeroRonda === 4){
+                    puntosRonda += parseInt(puntajes[3]) * 2;
+                } else if (numeroRonda === 5){
+                    puntosRonda += parseInt(puntajes[3]) * 3;
+                } else {
+                    puntosRonda += parseInt(puntajes[3]);
+                }
+                $('#puntajeparcial').html(puntosRonda);
+                break;
+                case '5':
+                $('#opcion5').css('transform', 'rotateX(-180deg)');
+                $('#opcion5').css('transition', 'transform 150ms ease');
+                audioCorrecta.play();
+                setTimeout(function(){ 
+                    $('#opcion5').removeClass('claseopcion');
+                    $('#opcion5').addClass('claserespuesta');
+                    if (puntajes[4].length === 2){
+                        $('#opcion5').html(opciones[4] + '<span class="puntajerespuesta2cifras">' + puntajes[4] + '</span>');
+                    } else if (puntajes[4].length === 1){
+                        $('#opcion5').html(opciones[4] + '<span class="puntajerespuesta1cifra">' + puntajes[4] + '</span>'); 
+                    }
+                    $('#opcion5').css('height', '111.8px !important'); 
+                    $('#opcion5').css('transform', 'rotateX(-360deg)'); 
+                    $('#opcion5').css('transition', 'transform 150ms ease');
+                }, 150);
+                if (numeroRonda === 4){
+                    puntosRonda += parseInt(puntajes[4]) * 2;
+                } else if (numeroRonda === 5){
+                    puntosRonda += parseInt(puntajes[4]) * 3;
+                } else {
+                    puntosRonda += parseInt(puntajes[4]);
+                }
+                $('#puntajeparcial').html(puntosRonda);
+                break;
+                case '6':
+                $('#opcion6').css('transform', 'rotateX(-180deg)');
+                $('#opcion6').css('transition', 'transform 150ms ease');
+                audioCorrecta.play();
+                setTimeout(function(){ 
+                    $('#opcion6').removeClass('claseopcion');
+                    $('#opcion6').addClass('claserespuesta');
+                    if (puntajes[5].length === 2){
+                        $('#opcion6').html(opciones[5] + '<span class="puntajerespuesta2cifras">' + puntajes[5] + '</span>');
+                    } else if (puntajes[5].length === 1){
+                        $('#opcion6').html(opciones[5] + '<span class="puntajerespuesta1cifra">' + puntajes[5] + '</span>'); 
+                    }
+                    $('#opcion6').css('height', '111.8px !important'); 
+                    $('#opcion6').css('transform', 'rotateX(-360deg)'); 
+                    $('#opcion6').css('transition', 'transform 150ms ease');
+                }, 150);
+                if (numeroRonda === 4){
+                    puntosRonda += parseInt(puntajes[5]) * 2;
+                } else if (numeroRonda === 5){
+                    puntosRonda += parseInt(puntajes[5]) * 3;
+                } else {
+                    puntosRonda += parseInt(puntajes[5]);
+                }
+                $('#puntajeparcial').html(puntosRonda);
+                break;
+                case '7':
+                $('#opcion7').css('transform', 'rotateX(-180deg)');
+                $('#opcion7').css('transition', 'transform 150ms ease');
+                audioCorrecta.play();
+                setTimeout(function(){ 
+                    $('#opcion7').removeClass('claseopcion');
+                    $('#opcion7').addClass('claserespuesta');
+                    if (puntajes[6].length === 2){
+                        $('#opcion7').html(opciones[6] + '<span class="puntajerespuesta2cifras">' + puntajes[6] + '</span>');
+                    } else if (puntajes[6].length === 1){
+                        $('#opcion7').html(opciones[6] + '<span class="puntajerespuesta1cifra">' + puntajes[6] + '</span>'); 
+                    }
+                    $('#opcion7').css('height', '111.8px !important'); 
+                    $('#opcion7').css('transform', 'rotateX(-360deg)'); 
+                    $('#opcion7').css('transition', 'transform 150ms ease');
+                }, 150);
+                if (numeroRonda === 4){
+                    puntosRonda += parseInt(puntajes[6]) * 2;
+                } else if (numeroRonda === 5){
+                    puntosRonda += parseInt(puntajes[6]) * 3;
+                } else {
+                    puntosRonda += parseInt(puntajes[6]);
+                }
+                $('#puntajeparcial').html(puntosRonda);
+                break;
+                case '8':
+                $('#opcion8').css('transform', 'rotateX(-180deg)');
+                $('#opcion8').css('transition', 'transform 150ms ease');
+                audioCorrecta.play();
+                setTimeout(function(){ 
+                    $('#opcion8').removeClass('claseopcion');
+                    $('#opcion8').addClass('claserespuesta');
+                    if (puntajes[7].length === 2){
+                        $('#opcion8').html(opciones[5] + '<span class="puntajerespuesta2cifras">' + puntajes[7] + '</span>');
+                    } else if (puntajes[7].length === 1){
+                        $('#opcion8').html(opciones[5] + '<span class="puntajerespuesta1cifra">' + puntajes[7] + '</span>'); 
+                    }
+                    $('#opcion8').css('height', '111.8px !important'); 
+                    $('#opcion8').css('transform', 'rotateX(-360deg)'); 
+                    $('#opcion8').css('transition', 'transform 150ms ease');
+                }, 150);
+                if (numeroRonda === 4){
+                    puntosRonda += parseInt(puntajes[7]) * 2;
+                } else if (numeroRonda === 5){
+                    puntosRonda += parseInt(puntajes[7]) * 3;
+                } else {
+                    puntosRonda += parseInt(puntajes[7]);
+                }
+                $('#puntajeparcial').html(puntosRonda);
+                break;
+                case ' ':
+                audioPulsador.play();
+                break;
+                case 'ArrowRight':
+                    if (numeroRonda === 5){
+                        window.location.replace("/dinerorapido.html?" + "juego=" + idJuego);
+                    } else {
+                        numeroRonda += 1;
+                pregunta = preguntas[numeroRonda].pregunta;
+                opciones = preguntas[numeroRonda].opciones;
+                puntajes = preguntas[numeroRonda].puntajes;
+                $('#textoPregunta').html('');
+                puntosRonda = 0;
+                crucesRonda = 0;
+                const cruz1 = document.querySelector('.cruz');
+                cruz1.parentElement.removeChild(cruz1);
+                const cruz2 = document.querySelector('.cruz');
+                cruz2.parentElement.removeChild(cruz2);
+                const cruz3 = document.querySelector('.cruz');
+                cruz3.parentElement.removeChild(cruz3);
+                $('#cruces').append('<span class="cruz"><img src="cruz.png" id="cruz1" class="cruz1UnaCruz"></span>');
+                $('#cruces').append('<span class="cruz"><img src="cruz.png" id="cruz2" class="cruz2DosCruces"></span>');
+                $('#cruces').append('<span class="cruz"><img src="cruz.png" id="cruz3" class="cruz3TresCruces"></span>');
+                $('#puntajeparcial').html(puntosRonda);
+                for(let i = 1; elementos = document.getElementById(prefijo + i); i++) {
+                    elementos.classList.remove('claserespuesta');
+                    elementos.classList.add('claseopcion');
+                    if (opciones.length >= i){
+                        elementos.innerHTML = i;
+                    } else {
+                        elementos.innerHTML = ""; 
+                    }
+                }
+                    }
+                
+                break;
+            case 'Enter':
+                $('#textoPregunta').html(pregunta);
+                break;
+            default:
+                audioCruz.play();
+                console.log(crucesRonda);
+                switch (crucesRonda){
+                    case 0:
+                        $('#cruz1').css('transform', 'scale(1.3)'); 
+                        $('#cruz1').css('visibility','visible');
+                        $('#cruz1').css('transition', 'transform 150ms ease');
+                        setTimeout(function(){ 
+                            $('#cruz1').css('filter', 'brightness(1.4)');
+                            $('#cruz1').css('transform', 'scale(1.4)');  
+                            $('#cruz1').css('transition', 'transform 100ms ease');
+                        }, 100);
+                        setTimeout(function(){ 
+                            $('#cruz1').css('filter', 'brightness(1)'); 
+                            $('#cruz1').css('transform', 'scale(1.3)'); 
+                            $('#cruz1').css('transition', 'transform 100ms ease');
+                        }, 200);
+                        setTimeout(function(){ 
+                            $('#cruz1').css('filter', 'brightness(1.4)'); 
+                            $('#cruz1').css('transform', 'scale(1.4)'); 
+                            $('#cruz1').css('transition', 'transform 100ms ease');
+                        }, 300);
+                        setTimeout(function(){ 
+                            $('#cruz1').css('filter', 'brightness(1)');
+                            $('#cruz1').css('transform', 'scale(1.3)'); 
+                            $('#cruz1').css('transition', 'transform 100ms ease'); 
+                        }, 400);
+                        setTimeout(function(){ 
+                            $('#cruz1').css('filter', 'brightness(1.4)'); 
+                            $('#cruz1').css('transform', 'scale(1.4)'); 
+                            $('#cruz1').css('transition', 'transform 100ms ease');
+                        }, 500);
+                        setTimeout(function(){ 
+                            $('#cruz1').css('filter', 'brightness(1)');
+                            $('#cruz1').css('transform', 'scale(1.3)'); 
+                            $('#cruz1').css('transition', 'transform 100ms ease'); 
+                        }, 600);
+                        setTimeout(function(){ 
+                            $('#cruz1').css('filter', 'brightness(1.4)'); 
+                        }, 700);
+                        setTimeout(function(){ 
+                            $('#cruz1').css('filter', 'brightness(1)'); 
+                        }, 800);
+                        setTimeout(function(){ 
+                            $('#cruz1').css('filter', 'brightness(1.4)'); 
+                        }, 900);
+                        setTimeout(function(){ 
+                            $('#cruz1').css('filter', 'brightness(1)'); 
+                        }, 1000);
+                    setTimeout(function(){ 
+                            $('#cruz1').removeClass('cruz1UnaCruz');
+                            $('#cruz1').addClass('cruz1DosCruces');
+                        }, 1000);
+                        break;
+                    case 1:
+                        $('#cruz1').css('transform', 'rotateZ(-180deg) translateX(-1400px) scale(1.3)'); 
+                        $('#cruz1').css('transition', 'transform 150ms ease');
+                        setTimeout(function(){ 
+                            $('#cruz1').css('filter', 'brightness(1.4)'); 
+                        }, 100);
+                        setTimeout(function(){ 
+                            $('#cruz1').css('filter', 'brightness(1)'); 
+                        }, 200);
+                        setTimeout(function(){ 
+                            $('#cruz1').css('filter', 'brightness(1.4)'); 
+                        }, 300);
+                        setTimeout(function(){ 
+                            $('#cruz1').css('filter', 'brightness(1)'); 
+                        }, 400);
+                        setTimeout(function(){ 
+                            $('#cruz1').css('filter', 'brightness(1.4)'); 
+                        }, 500);
+                        setTimeout(function(){ 
+                            $('#cruz1').css('filter', 'brightness(1)'); 
+                        }, 600);
+                        setTimeout(function(){ 
+                            $('#cruz1').css('filter', 'brightness(1.4)'); 
+                        }, 700);
+                        setTimeout(function(){ 
+                            $('#cruz1').css('filter', 'brightness(1)'); 
+                        }, 800);
+                        setTimeout(function(){ 
+                            $('#cruz1').css('filter', 'brightness(1.4)'); 
+                        }, 900);
+                        setTimeout(function(){ 
+                            $('#cruz1').css('filter', 'brightness(1)'); 
+                        }, 1000);
+                        $('#cruz2').css('opacity', '1');
+                        $('#cruz2').css('height', 'auto');
+
+                        $('#cruz2').css('transform', 'rotateZ(-180deg) translateX(1400px) scale(1.3)'); 
+                        $('#cruz2').css('transition', 'transform 150ms ease');
+                        setTimeout(function(){ 
+                            $('#cruz2').css('filter', 'brightness(1.4)'); 
+                        }, 100);
+                        setTimeout(function(){ 
+                            $('#cruz2').css('filter', 'brightness(1)'); 
+                        }, 200);
+                        setTimeout(function(){ 
+                            $('#cruz2').css('filter', 'brightness(1.4)'); 
+                        }, 300);
+                        setTimeout(function(){ 
+                            $('#cruz2').css('filter', 'brightness(1)'); 
+                        }, 400);
+                        setTimeout(function(){ 
+                            $('#cruz2').css('filter', 'brightness(1.4)'); 
+                        }, 500);
+                        setTimeout(function(){ 
+                            $('#cruz2').css('filter', 'brightness(1)'); 
+                        }, 600);
+                        setTimeout(function(){ 
+                            $('#cruz2').css('filter', 'brightness(1.4)'); 
+                        }, 700);
+                        setTimeout(function(){ 
+                            $('#cruz2').css('filter', 'brightness(1)'); 
+                        }, 800);
+                        setTimeout(function(){ 
+                            $('#cruz2').css('filter', 'brightness(1.4)'); 
+                        }, 900);
+                        setTimeout(function(){ 
+                            $('#cruz2').css('filter', 'brightness(1)'); 
+                        }, 1000);
+                        setTimeout(function(){ 
+                            $('#cruz1').css('transform', 'rotateZ(-180deg) scale(3)'); 
+                            $('#cruz2').css('transform', 'rotateZ(-180deg) scale(3)'); 
+                            $('#cruz1').css('display', 'none'); 
+                            $('#cruz2').css('display', 'none'); 
+                            $('#cruz1').removeClass('cruz1DosCruces');
+                            $('#cruz1').addClass('cruz1TresCruces');
+                            $('#cruz2').removeClass('cruz2DosCruces');
+                            $('#cruz2').addClass('cruz2TresCruces');
+                        }, 1000);
+                        break;
+                    case 2:
+                        $('#cruz3').css('transform', 'scale(1.1)'); 
+                        $('#cruz3').css('visibility','visible');
+                        $('#cruz3').css('transition', 'transform 150ms ease');
+                        setTimeout(function(){ 
+                            $('#cruz3').css('filter', 'brightness(1.4)');
+                        }, 100);
+                        setTimeout(function(){ 
+                            $('#cruz3').css('filter', 'brightness(1)'); 
+                        }, 200);
+                        setTimeout(function(){ 
+                            $('#cruz3').css('filter', 'brightness(1.4)'); 
+                        }, 300);
+                        setTimeout(function(){ 
+                            $('#cruz3').css('filter', 'brightness(1)');
+                        }, 400);
+                        setTimeout(function(){ 
+                            $('#cruz3').css('filter', 'brightness(1.4)'); 
+                        }, 500);
+                        setTimeout(function(){ 
+                            $('#cruz3').css('filter', 'brightness(1)');
+                        }, 600);
+                        setTimeout(function(){ 
+                            $('#cruz3').css('filter', 'brightness(1.4)'); 
+                        }, 700);
+                        setTimeout(function(){ 
+                            $('#cruz3').css('filter', 'brightness(1)'); 
+                        }, 800);
+                        setTimeout(function(){ 
+                            $('#cruz3').css('filter', 'brightness(1.4)'); 
+                        }, 900);
+                        setTimeout(function(){ 
+                            $('#cruz3').css('filter', 'brightness(1)'); 
+                        }, 1000);
+                        $('#cruz1').css('display', 'block'); 
+                        $('#cruz1').css('transform', 'rotateZ(-180deg) translateX(-1300px) scale(1.1)'); 
+                        $('#cruz1').css('transition', 'transform 150ms ease');
+                        setTimeout(function(){ 
+                            $('#cruz1').css('filter', 'brightness(1.4)'); 
+                        }, 100);
+                        setTimeout(function(){ 
+                            $('#cruz1').css('filter', 'brightness(1)'); 
+                        }, 200);
+                        setTimeout(function(){ 
+                            $('#cruz1').css('filter', 'brightness(1.4)'); 
+                        }, 300);
+                        setTimeout(function(){ 
+                            $('#cruz1').css('filter', 'brightness(1)'); 
+                        }, 400);
+                        setTimeout(function(){ 
+                            $('#cruz1').css('filter', 'brightness(1.4)'); 
+                        }, 500);
+                        setTimeout(function(){ 
+                            $('#cruz1').css('filter', 'brightness(1)'); 
+                        }, 600);
+                        setTimeout(function(){ 
+                            $('#cruz1').css('filter', 'brightness(1.4)'); 
+                        }, 700);
+                        setTimeout(function(){ 
+                            $('#cruz1').css('filter', 'brightness(1)'); 
+                        }, 800);
+                        setTimeout(function(){ 
+                            $('#cruz1').css('filter', 'brightness(1.4)'); 
+                        }, 900);
+                        setTimeout(function(){ 
+                            $('#cruz1').css('filter', 'brightness(1)'); 
+                        }, 1000);
+                        $('#cruz2').css('display', 'block');
+                        $('#cruz2').css('transform', 'rotateZ(-180deg) translateX(1300px) scale(1.1)'); 
+                        $('#cruz2').css('transition', 'transform 150ms ease');
+                        setTimeout(function(){ 
+                            $('#cruz2').css('filter', 'brightness(1.4)'); 
+                        }, 100);
+                        setTimeout(function(){ 
+                            $('#cruz2').css('filter', 'brightness(1)'); 
+                        }, 200);
+                        setTimeout(function(){ 
+                            $('#cruz2').css('filter', 'brightness(1.4)'); 
+                        }, 300);
+                        setTimeout(function(){ 
+                            $('#cruz2').css('filter', 'brightness(1)'); 
+                        }, 400);
+                        setTimeout(function(){ 
+                            $('#cruz2').css('filter', 'brightness(1.4)'); 
+                        }, 500);
+                        setTimeout(function(){ 
+                            $('#cruz2').css('filter', 'brightness(1)'); 
+                        }, 600);
+                        setTimeout(function(){ 
+                            $('#cruz2').css('filter', 'brightness(1.4)'); 
+                        }, 700);
+                        setTimeout(function(){ 
+                            $('#cruz2').css('filter', 'brightness(1)'); 
+                        }, 800);
+                        setTimeout(function(){ 
+                            $('#cruz2').css('filter', 'brightness(1.4)'); 
+                        }, 900);
+                        setTimeout(function(){ 
+                            $('#cruz2').css('filter', 'brightness(1)'); 
+                        }, 1000);
+                        setTimeout(function(){ 
+                            $('#cruz1').css('transform', 'rotateZ(-180deg) scale(3)'); 
+                            $('#cruz2').css('transform', 'rotateZ(-180deg) scale(3)'); 
+                            $('#cruz1').css('display', 'none'); 
+                            $('#cruz2').css('display', 'none'); 
+                            $('#cruz1').removeClass('cruz1DosCruces');
+                            $('#cruz1').addClass('cruz1TresCruces');
+                            $('#cruz2').removeClass('cruz2DosCruces');
+                            $('#cruz2').addClass('cruz2TresCruces');
+                            $('#cruz3').css('visibility', 'hidden'); 
+                            $('#cruz3').css('transform', 'scale(3)'); 
+                        }, 1000);
+                        break;
+                    case 3:
+                        $('#cruz3').css('transform', 'scale(1.3)'); 
+                        $('#cruz3').css('visibility','visible');
+                        $('#cruz3').css('transition', 'transform 150ms ease');
+                        setTimeout(function(){ 
+                            $('#cruz3').css('filter', 'brightness(1.4)');
+                            $('#cruz3').css('transform', 'scale(1.4)');  
+                            $('#cruz3').css('transition', 'transform 100ms ease');
+                        }, 100);
+                        setTimeout(function(){ 
+                            $('#cruz3').css('filter', 'brightness(1)'); 
+                            $('#cruz3').css('transform', 'scale(1.3)'); 
+                            $('#cruz3').css('transition', 'transform 100ms ease');
+                        }, 200);
+                        setTimeout(function(){ 
+                            $('#cruz3').css('filter', 'brightness(1.4)'); 
+                            $('#cruz3').css('transform', 'scale(1.4)'); 
+                            $('#cruz3').css('transition', 'transform 100ms ease');
+                        }, 300);
+                        setTimeout(function(){ 
+                            $('#cruz3').css('filter', 'brightness(1)');
+                            $('#cruz3').css('transform', 'scale(1.3)'); 
+                            $('#cruz3').css('transition', 'transform 100ms ease'); 
+                        }, 400);
+                        setTimeout(function(){ 
+                            $('#cruz3').css('filter', 'brightness(1.4)'); 
+                            $('#cruz3').css('transform', 'scale(1.4)'); 
+                            $('#cruz3').css('transition', 'transform 100ms ease');
+                        }, 500);
+                        setTimeout(function(){ 
+                            $('#cruz3').css('filter', 'brightness(1)');
+                            $('#cruz3').css('transform', 'scale(1.3)'); 
+                            $('#cruz3').css('transition', 'transform 100ms ease'); 
+                        }, 600);
+                        setTimeout(function(){ 
+                            $('#cruz3').css('filter', 'brightness(1.4)'); 
+                        }, 700);
+                        setTimeout(function(){ 
+                            $('#cruz3').css('filter', 'brightness(1)'); 
+                        }, 800);
+                        setTimeout(function(){ 
+                            $('#cruz3').css('filter', 'brightness(1.4)'); 
+                        }, 900);
+                        setTimeout(function(){ 
+                            $('#cruz3').css('filter', 'brightness(1)'); 
+                        }, 1000);
+                        setTimeout(function(){  
+                            $('#cruz3').css('display', 'none'); 
+                        }, 1000);
+                        break;
+                }
+                crucesRonda++;
+                break;
+        }
+    }
+    
+    }
+    </script>
+    
+</body>
+</html>
