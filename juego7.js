@@ -1,180 +1,196 @@
 var preguntas = {
     "1":{
-        "pregunta": "un tipo de cuota",
+        "pregunta": "La mejor serie que hayas visto que no está en Netflix",
         "opciones":[
-            "TARJETA DE CRÉDITO", 
-            "CASA/DEPARTAMENTO",
-            "COLEGIO",
-            "ALIMENTARIA",
-            "CLUB/GIMNASIO",
-            "AUTO"
+            "FRIENDS",
+            "GAME OF THRONES",
+            "THE OFFICE",
+            "THIS IS US",
+            "LOST",
+            "CRIMINAL MINDS",
+            "INVINCIBLE",
+            "LOS SIMPSON",
+            
             ],
         "puntajes":[
-            "28",
-            "16",
-            "13",
+            "15",
+            "10",
             "8",
-            "6",
-            "4"
+            "7",
+            "5",
+            "4",
+            "3",
+            "3"
         ]
     },
     "2":{
-        "pregunta": "una canción de La Mosca",
+        "pregunta": "Lo primero que hacés cuando te levantás",
         "opciones":[
-            "YO TE QUIERO DAR", 
-            "PARA NO VERTE MÁS",
-            "TE QUIERO COMER LA BOCA",
-            "BAILA PARA MÍ",
-            "TODOS TENEMOS UN AMOR",
-            "HOY ESTOY PEOR QUE AYER"
+            "MIRAR EL CELULAR/LA HORA",
+            "IR AL BAÑO",
+            "LAVARME LOS DIENTES",
+            "DESAYUNAR",
+            "APAGAR LA ALARMA",
+            "VESTIRME"
             ],
         "puntajes":[
-            "24",
-            "17",
-            "12",
-            "8",
-            "6",
-            "4"
+            "26",
+            "23",
+            "15",
+            "5",
+            "5",
+            "5"
         ]
     },
     "3":{
-        "pregunta": "qué máquina o utensilio podés ver en una librería ",
+        "pregunta": "Una palabra que comience con 'SUB'",
         "opciones":[
-            "IMPRESORA/F.COPIADORA", 
-            "ABROCHADORA",
-            "AGUJEREADORA",
-            "GUILLOTINA",
-            "CALCULADORA"
-            ],
-        "puntajes":[
-            "31",
-            "14",
-            "10",
-            "7",
-            "5"
-        ]
-    },
-    "4":{
-        "pregunta": "un refrán o frase popular que contenga el dos y el tres",
-        "opciones":[
-            "NO HAY 2 SIN 3", 
-            "2 POR 3/CADA 2 POR 3",
-            "DONDE COMEN 2, COMEN 3",
-            "2 SON COMPAÑÍA, 3 SON..."
+            "SUBTE/SUBTERRÁNEO", 
+            "SUBMARINO",
+            "SUBSUELO",
+            "SUBTÍTULO",
+            "SUBE/SUBIR",
+            "SUBCAMPEÓN"
             ],
         "puntajes":[
             "36",
-            "31",
-            "16",
-            "8"
+            "18",
+            "10",
+            "8",
+            "5",
+            "3"
+        ]
+    },
+    "4":{
+        "pregunta": "Una cantante mujer de pop internacional",
+        "opciones":[
+            "LADY GAGA",
+            "MADONNA",
+            "BRITNEY SPEARS",
+            "ARIANA GRANDE",
+            "TAYLOR SWIFT",
+            "DUA LIPA",
+            "RIHANNA",
+            "KATY PERRY"
+            ],
+        "puntajes":[
+            "18",
+            "14",
+            "13",
+            "11",
+            "8",
+            "8",
+            "4",
+            "4"
         ]
     }, 
     "5":{
-        "pregunta": "qué hace una persona que habla en público y está muy nerviosa",
+        "pregunta": "Un equipo de fútbol de Brasil",
         "opciones":[
-            "GESTICULA", 
-            "CARRASPEA/TOSE",
-            "TRANSPIRA/SUDA",
-            "MIRA PARA ABAJO",
-            "PIERDE EL HILO",
-            "SE RÍE"
+            "PALMEIRAS",
+            "FLAMENGO",
+            "ATLÉTICO MINEIRO",
+            "CORINTHIANS",
+            "SAO PAULO/SAN PABLO",
+            "FLUMINENSE"
+            
             ],
         "puntajes":[
-            "25",
+            "22",
             "17",
-            "13",
-            "8",
-            "6",
-            "5"
+            "10",
+            "9",
+            "4",
+            "3"
         ]
     },
     "dinerorapido":{
         "pregunta1": {
-            "pregunta": "qué podés hacer con los palitos chinos?",
+            "pregunta": "Un país de Europa sin salida al mar",
             "opciones":[
-                "RODETE DE PELO", 
-                "RASCARME",
-                "ESCARBADIENTES",
-                "MANUALIDADES",
-                "TUTOR DE PLANTA",
-                "HACER MÚSICA"
+                "SUIZA", 
+                "ALEMANIA",
+                "AUSTRIA",
+                "REPÚBLICA CHECA",
+                "ANDORRA",
+                "UCRANIA"
                 ],
             "puntajes":[
                 "23",
-                "20",
-                "11",
+                "14",
+                "9",
                 "7",
-                "5",
-                "4"
+                "4",
+                "3"
             ]
         },
         "pregunta2": {
-            "pregunta": "qué completa la frase 'Ponete...' ",
+            "pregunta": "Cuántos minutos, en promedio, dura una canción",
             "opciones":[
-                "A LABURAR/ESTUDIAR",
-                "EN MI/SU LUGAR",
-                "LAS PILAS",
-                "LA CAMISETA",
-                "LINDO/LINDA"
+                "TRES MINUTOS",
+                "CUATRO MINUTOS",
+                "DOS MINUTOS",
+                "CINCO MINUTOS"
                 ],
             "puntajes":[
-                "26",
-                "17",
-                "13",
-                "8",
-                "4"
+                "41",
+                "28",
+                "23",
+                "5"
             ]
         },
         "pregunta3": {
-            "pregunta": "una palabra empezada en 'TERMO'",
+            "pregunta": "Un elemento que podés encontrar en un gimnasio",
         "opciones":[
-            "TERMOTANQUE", 
-            "TERMÓMETRO",
-            "TERMODINÁMICO/A",
-            "TERMOSTATO"
+            "PESAS/MANCUERNAS/BARRA", 
+            "MÁQUINAS/CINTA/BICICLETA",
+            "COLCHONETAS",
+            "ESPEJOS",
+            "PELOTAS"
             ],
         "puntajes":[
-            "38",
-            "32",
-            "14",
-            "7"
+            "50",
+            "16",
+            "13",
+            "7",
+            "3"
         ]
         },
         "pregunta4": {
-            "pregunta": "qué completa la frase 'El ritmo musical que mejor bailo es...'",
+            "pregunta": "Un juego de cartas",
             "opciones": [
-                "CUMBIA",
-                "REGGAETON",
-                "CUARTETO",
-                "ROCK",
-                "VALS",
-                "TANGO"
+                "TRUCO",
+                "UNO",
+                "CHINCHÓN",
+                "ESCOBA DE 15",
+                "POKER",
+                "CHIN"
             ],
             "puntajes": [
-                "24",
-                "17",
-                "11",
-                "9",
+                "48",
+                "18",
+                "13",
+                "7",
                 "5",
                 "3"
             ]
         },
         "pregunta5": {
-            "pregunta": "qué podés ver en una plataforma de streaming?",
+            "pregunta": "Algo que encontrarías en un baño",
             "opciones": [
-                "SERIES",
-                "PELÍCULAS",
-                "TV EN VIVO",
-                "DEPORTES",
-                "RECITAL/SHOW DE MÚSICA",
-                "INFANTILES/D. ANIMADOS"
+                "JABÓN",
+                "INODORO",
+                "PAPEL HIGIÉNICO",
+                "CEPILLO DE DIENTES",
+                "TOALLA",
+                "PEINE"
             ],
             "puntajes": [
-                "23",
-                "20",
-                "9",
+                "39",
+                "18",
+                "15",
+                "10",
                 "6",
-                "5",
                 "3"
             ]
         }

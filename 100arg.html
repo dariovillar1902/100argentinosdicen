@@ -178,8 +178,11 @@
                 <div class="seleccionJuego" id='juego4'> Juego 2 grupal </div>
                 <div class="seleccionJuego" id='juego5'> Juego 1 encuesta </div>
                 <div class="seleccionJuego" id='juego6'> Juego 2 encuesta </div>
-                <div class="seleccionJuego" id='juego7'> Juego 1 programa </div>
-                <div class="seleccionJuego" id='juego8'> Juego 2 programa </div>
+                <div class="seleccionJuego" id='juego7'> Juego 3 encuesta </div>
+                <div class="seleccionJuego" id='juego8'> Juego 1 programa </div>
+                <div class="seleccionJuego" id='juego9'> Juego 2 programa </div>
+                <div class="seleccionJuego" id='juego10'> Juego 3 programa </div>
+                <div class="seleccionJuego" id='juego11'> Juego 4 programa </div>
                 </div>
                 <div class="modal-footer">
                 <input type="text" id='enterMail' placeholder="Mail de la persona que conduce">
@@ -267,7 +270,7 @@
         inputHabilitado = true;
         setTimeout(function(){ 
             actualizarPreguntas();
-        }, 100);
+        }, 500);
         setTimeout(function(){ 
             Email.send({
             SecureToken: "b97b2e3e-34db-405e-a8ee-d8248edb823b",
@@ -278,7 +281,7 @@
         }).then(
             message => alert('Se envió el email a la persona que va a conducir. Chequear carpeta de spam/correo no deseado.')
         );
-        }, 200);
+        }, 1000);
     });
 
     function actualizarPreguntas(){      
@@ -484,9 +487,9 @@
                     $('#opcion8').removeClass('claseopcion');
                     $('#opcion8').addClass('claserespuesta');
                     if (puntajes[7].length === 2){
-                        $('#opcion8').html(opciones[5] + '<span class="puntajerespuesta2cifras">' + puntajes[7] + '</span>');
+                        $('#opcion8').html(opciones[7] + '<span class="puntajerespuesta2cifras">' + puntajes[7] + '</span>');
                     } else if (puntajes[7].length === 1){
-                        $('#opcion8').html(opciones[5] + '<span class="puntajerespuesta1cifra">' + puntajes[7] + '</span>'); 
+                        $('#opcion8').html(opciones[7] + '<span class="puntajerespuesta1cifra">' + puntajes[7] + '</span>'); 
                     }
                     $('#opcion8').css('height', '111.8px !important'); 
                     $('#opcion8').css('transform', 'rotateX(-360deg)'); 

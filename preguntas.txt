@@ -1,4 +1,4 @@
-La mejor serie que viste que no esté en Netflix
+XLa mejor serie que viste que no esté en Netflix
 Friends 15
 Game of Thrones 10
 The Office 8
@@ -8,7 +8,7 @@ Criminal Minds 4
 Invincible 3
 Los Simpson 3
 
-Un juego de cartas
+XUn juego de cartas
 Truco 48
 Uno 18
 Chinchon 13
@@ -23,7 +23,7 @@ Tiktok 6
 Whatsapp 5
 Facebook 3
 
-Un deporte sin pelota
+XUn deporte sin pelota
 Natación 43
 Boxeo 16
 Atletismo/Running/Correr 12
@@ -31,7 +31,7 @@ Ajedrez 8
 Automovilismo/Fórmula 1/Carreras 4
 Patín/Patinaje 3
 
-La mejor película del cine argentino
+XLa mejor película del cine argentino
 Relatos salvajes 27
 El secreto de sus ojos 23
 Esperando la carroza 14
@@ -49,7 +49,7 @@ Las pastillas del abuelo 6
 La vela puerca 3
 Divididos 3
 
-Cuánto gastarías en una cena para dos personas
+XCuánto gastarías en una cena para dos personas
 3000 33
 2000 22
 2500 13
@@ -58,7 +58,7 @@ Cuánto gastarías en una cena para dos personas
 5000 4
 1000 3
 
-Un corte de carne
+XUn corte de carne
 Vacío 20
 Lomo 15
 Nalga 10
@@ -68,24 +68,24 @@ Asado 8
 Matambre 6
 Cuadril/colita de cuadril 4
 
-Una fruta que no contenga la letra A
+XUna fruta que no contenga la letra A
 Kiwi 45
 Melón 23
 Pomelo 10
 Limón 7
-Tomate 5
+Coco 5
 
-Una cantante mujer de pop internacional
-Madonna 14
+XUna cantante mujer de pop internacional
 Lady Gaga 18
+Madonna 14
+Britney Spears 13
 Ariana Grande 11
 Taylor Swift 8
-Britney Spears 13
 Dua Lipa 8
 Rihanna 4
 Katy Perry 4
 
-Una provincia de Argentina que no tenga la letra E en su nombre
+XUna provincia de Argentina que no tenga la letra E en su nombre
 Córdoba 16
 Jujuy 14
 Salta 14
@@ -95,7 +95,7 @@ Tucumán 10
 Chaco 6
 La Pampa 6
 
-Un equipo de fútbol de Brasil
+XUn equipo de fútbol de Brasil
 Palmeiras 22
 Flamengo 17
 Atlético Mineiro 10
@@ -103,7 +103,7 @@ Corinthians 9
 Sao Paulo/San Pablo 4
 Fluminense 3
 
-Un medallista olímpico argentino
+XUn medallista olímpico argentino
 Paula Pareto 31
 Juan Martín del Potro 18
 José Meolans 8
@@ -111,7 +111,7 @@ Luciana Aymar 6
 Facundo Conte 5
 Lionel Messi 4
 
-Un ritmo de baile que se suele bailar en pareja
+XUn ritmo de baile que se suele bailar en pareja
 Tango 40
 Bachata 17
 Salsa 14
@@ -119,14 +119,14 @@ Cuarteto 9
 Vals/Lento 8
 Rock 5
 
-Programas de televisión argentinos que se transmitan a la mañana
+XProgramas de televisión argentinos que se transmitan a la mañana
 LAM/Los Ángeles de la Mañana 42
 Noticieros/Noticias 19
 Morfi/La peña de Morfi 9
 Flor de equipo 5
 Panam/Piñón Fijo 3
 
-Algo que llevarías en una mochila
+XAlgo que llevarías en una mochila
 Billetera 28
 Agua/bebidas 12
 Cuadernos/carpetas 10
@@ -136,7 +136,7 @@ Llaves 6
 Alcohol/en gel 5
 Cargador 5
 
-Cuántos agujeros tiene un cinturón
+XCuántos agujeros tiene un cinturón
 5 34
 6 22
 10 13
@@ -145,14 +145,14 @@ Cuántos agujeros tiene un cinturón
 8 5
 20 3
 
-Algo que se llena con aire
+XAlgo que se llena con aire
 Globo 49
 Rueda 20
 Pelota 12
 Pulmones 8
 Inflable/colchón/almohada 4
 
-Una palabra que empiece con "sub"
+XUna palabra que empiece con "sub"
 Subte/subterráneo 36
 Submarino 18
 Subsuelo 10
@@ -160,7 +160,7 @@ Subtítulo 8
 Sube/Subir 5
 Subcampeón 3
 
-Lo primero que hacés cuando te levantás
+XLo primero que hacés cuando te levantás
 Lavarme los dientes 15
 Ir al baño 23
 Mirar el celular/la hora 26
@@ -168,13 +168,13 @@ Desayunar 5
 Apagar la alarma 5
 Vestirme 5
 
-El primer accesorio que comprás para un celular nuevo
+XEl primer accesorio que comprás para un celular nuevo
 Funda 45
 Vidrio templado/Glass/Protector 28
 Auriculares 13
 Cargador/cable 7
 
-Un nombre típico de psicóloga mujer
+XUn nombre típico de psicóloga mujer
 María 19
 Laura 15
 Claudia 10
@@ -184,7 +184,7 @@ Natalia 4
 Verónica 4
 Silvia 4
 
-Un país de Europa sin salida al mar
+XUn país de Europa sin salida al mar
 Suiza 23
 Alemania 14
 Austria 9
@@ -192,7 +192,7 @@ República Checa 7
 Andorra 4
 Ucrania 3
 
-Un electrodoméstico que se rompe fácilmente
+XUn electrodoméstico que se rompe fácilmente
 Licuadora 15
 Microondas 13
 Lavarropas 13
@@ -202,47 +202,47 @@ Tostadora 8
 Pava eléctrica 7
 Plancha/Planchita 6
 
-Un ingrediente típico en una receta para preparar una torta
+XUn ingrediente típico en una receta para preparar una torta
 Harina 44
 Huevos 31
 Azúcar 7
 Dulce de leche 5
 Chocolate 3
 
-Un instrumento musical de viento
+XUn instrumento musical de viento
 Flauta 46
 Trompeta 25
 Saxofón/Saxo 11
 Quena 7
 Clarinete/oboe 3
 
-Algo a lo que le sacarías una foto
+XAlgo a lo que le sacarías una foto
 Paisaje 28
 Mascota/perro/gato 22
 Atardecer/cielo 20
 Comida 5
 Monumento/estatua/escultura 4
 
-Cuántos minutos, en promedio, dura una canción
+XCuántos minutos, en promedio, dura una canción
 3 41
 4 28
 2 23
 5 5
 
-Cuántos minutos, en promedio, dura una película
+XCuántos minutos, en promedio, dura una película
 90 35
 120 32
 100 14
 150 6
 
-Un elemento que podés encontrar en un gimnasio 
+XUn elemento que podés encontrar en un gimnasio 
 Pesas/mancuernas 50
 Máquinas/cintas/bicicletas 16
 Colchonetas 13
 Espejos 7
 Pelotas 3
 
-Un famoso argentino controversial
+XUn famoso argentino controversial
 Ricardo Fort 24
 Diego Maradona 18
 Jorge Rial 11
@@ -258,7 +258,7 @@ Pájaros/aves 6
 Gente comer/masticar 5
 Mosquitos 3
 
-Algo que una aerolínea te cobra aparte a la hora de viajar
+XAlgo que una aerolínea te cobra aparte a la hora de viajar
 Equipaje extra/Más valijas 41
 Comida/bebida 18
 Impuestos/tasas 11

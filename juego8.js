@@ -1,185 +1,186 @@
 var preguntas = {
     "1":{
-        "pregunta": "Le preguntamos a 100 argentinos... qué dirían cuando dicen 'Doctor, me salió un...'",
+        "pregunta": "Un tipo de programa que no sea de juegos",
         "opciones":[
-            "GRANO/FORÚNCULO", 
-            "QUISTE",
-            "HEMATOMA/MORETÓN",
-            "BULTO",
-            "HERPES",
-            "SARPULLIDO"
+            "NOTICIAS/PERIODÍSTICO", 
+            "DEPORTIVO", 
+            "COCINA", 
+            "ESPECTÁCULOS", 
+            "TELENOVELA", 
+            "REALITY SHOW"
             ],
         "puntajes":[
-            "25",
-            "14",
+            "26",
+            "17",
             "10",
-            "8",
-            "6",
+            "7",
+            "5",
             "4"
         ]
     },
     "2":{
-    "pregunta": "Le preguntamos a 100 argentinos... qué pensás en el momento de despertarte con 45° de calor?",
+        "pregunta": "Qué te daría vergüenza que hiciera tu pareja cuando conoce a tus padres",
         "opciones":[
-            "ME VOY/SIGO DURMIENDO", 
-            "¡QUÉ FIACA!",
-            "¿QUÉ ME PONGO?",
-            "ME TOMO UN TAXI/REMIS",
-            "QUIERO VACACIONES/FDS",
-            "ME QUIERO MORIR"
+            "ERUCTO/FLATULENCIA", 
+            "MALAS PALABRAS", 
+            "COMA MUCHO/COMA MAL" ,
+            "TOME DE MÁS" ,
+            "HABLE MUCHO/FUERTE" ,
+            "NO HABLE/NO RESPONDA" 
+
             ],
         "puntajes":[
             "24",
             "16",
-            "9",
+            "11",
             "7",
-            "6",
-            "4"
+            "5",
+            "3"
         ]
     },
     "3":{
-        "pregunta": "Le preguntamos a 100 argentinos 6 famosas norteamericanas con un lunar en la cara ",
+        "pregunta": "Un lugar en el que cobran caro algo que en otros lugares no es tan caro ",
         "opciones":[
-            "CINDY CRAWFORD",
-            "MARILYN MONROE",
-            "SCARLETT JOHANSSON",
-            "JULIA ROBERTS",
-            "MADONNA",
-            "ANGELINA JOLIE"
+            "AEROPUERTO", 
+"BAR/BOLICHE/RECITAL" ,
+"CINE" ,
+"CANCHA", 
+"TERMINAL DE ÓMNIBUS" ,
+"SHOPPING" 
+
             ],
         "puntajes":[
-            "23",
-            "17",
+            "27",
+            "15",
             "11",
-            "7",
-            "6",
-            "4"
-        ]
-    },
-    "4":{
-        "pregunta": "Le preguntamos a 100 argentinos... si no tenés terraza, para qué subirías al techo?",
-        "opciones":[
-            "ARREGLOS/LIMPIEZA", 
-            "BUSCAR PELOTA/GATO",
-            "TOMAR SOL",
-            "COLGAR LA ROPA",
-            "VER ALGO"
-            ],
-        "puntajes":[
-            "30",
-            "12",
-            "9",
-            "7",
-            "6"
-        ]
-    },
-    "5":{
-        "pregunta": "Le preguntamos a 100 argentinos... por qué una pareja mantendría en secreto su relación?",
-        "opciones":[
-            "CASADOS/TIENEN PAREJA", 
-            "DIFERENCIA DE EDAD",
-            "COMPAÑEROS DE TRABAJO",
-            "RECIÉN SEPARADOS",
-            "SON PRIMOS/FAMILIARES",
-            "SON FAMOSOS"
-            ],
-        "puntajes":[
-            "31",
-            "14",
-            "10",
             "8",
             "5",
             "4"
         ]
     },
+    "4":{
+        "pregunta": "Algo que pueda ser cuadriculado",
+        "opciones":[
+            "HOJA/CUADERNO",
+"CAMISA", 
+"MANTEL",
+"REPASADOR" 
+            ],
+        "puntajes":[
+            "37",
+            "25",
+            "18",
+            "10"
+        ]
+    }, 
+    "5":{
+        "pregunta": "De qué cosa puede ser un corte",
+        "opciones":[
+            "PELO" ,
+            "LUZ" ,
+            "CARNE" ,
+            "CALLE/RUTA" ,
+            "MANGA" ,
+            "AGUA" 
+            
+            ],
+        "puntajes":[
+            "25",
+            "17",
+            "11",
+            "7",
+            "5",
+            "3"
+        ]
+    },
     "dinerorapido":{
         "pregunta1": {
-            "pregunta": "¿Qué prenda podés usar, sin que te importe, al revés?",
-            "opciones": [
-                "REMERA/MUSCULOSA",
-                "MEDIAS",
-                "ROPA INTERIOR",
-                "SUÉTER/BUZO"
-            ],
-            "puntajes": [
-                "35",
-                "26",
-                "19",
-                "10"
+            "pregunta": "Por qué una persona puede caminar rápido",
+            "opciones":[
+                "TIENE QUE IR AL BAÑO",
+                "LLEGA TARDE",
+                "SE VA EL BONDI",
+                "ESTÁ ENTRENANDO" 
+                ],
+            "puntajes":[
+                "37",
+                "28",
+                "18",
+                "8"
             ]
         },
         "pregunta2": {
-            "pregunta": "¿A quién llamás si Barassi se queda sin voz?",
-            "opciones": [
-                "ALEJANDRO MARLEY",
-                "GUIDO KACZKA",
-                "MARCELO TINELLI",
-                "JORGE LANATA",
-                "MONCHI BALESTRA",
-                "DIEGO TOPA"
-            ],
-            "puntajes": [
-                "21",
-                "16",
-                "11",
-                "7",
+            "pregunta": "Cuando el botellero pasa por tu barrio, qué cosa quiere comprar",
+            "opciones":[
+                "BOTELLAS/VIDRIO/PLÁSTICO",
+                "BATERÍAS",
+                "CARTÓN/PAPEL",
+                "COLCHONES/CAMAS",
+                "ELECTRODOMÉSTICOS",
+                "COBRE"
+                ],
+            "puntajes":[
+                "31",
+                "14",
+                "10",
                 "6",
-                "4"
-            ]
-        },
-        "pregunta3": {
-            "pregunta": "Además de comida y bebida, ¿qué ofrecen los vendedores ambulantes en la playa?",
-            "opciones": [
-                "PAREOS/VESTIDOS/BIKINIS",
-                "LENTES DE SOL",
-                "ARTESANÍAS/BIJOU",
-                "GORRAS/SOMBREROS",
-                "SOMBRILLAS",
-                "JUEGOS/JUGUETES"
-            ],
-            "puntajes": [
-                "26",
-                "16",
-                "12",
-                "8",
                 "5",
                 "3"
             ]
         },
+        "pregunta3": {
+            "pregunta": "De qué son los tutoriales que ves por Internet",
+        "opciones":[
+            "COCINA", 
+            "MAQUILLAJE",
+            "PELUQUERÍA",
+            "JARDINERÍA",
+            "GIMNASIA/EJERCICIOS",
+            "JUEGOS"
+            ],
+        "puntajes":[
+            "28",
+            "16",
+            "11",
+            "6",
+            "4",
+            "3"
+        ]
+        },
         "pregunta4": {
-            "pregunta": "Con una sola palabra, completar la frase 'Tengo ganas de...'",
+            "pregunta": "Una palabra que puede gritarle un DT a un jugador durante el partido",
             "opciones": [
-                "COMER",
-                "DORMIR",
-                "VIAJAR",
-                "BAILAR",
-                "SALIR/PASEAR",
-                "ENTRENAR"
+                "CORRÉ",
+                "BAJÁ",
+                "SUBÍ",
+                "MARCÁ",
+                "PATEÁ",
+                "TOCÁ/PASALA"
             ],
             "puntajes": [
-                "21",
+                "24",
                 "17",
-                "12",
+                "13",
                 "8",
-                "6",
+                "5",
                 "4"
             ]
         },
         "pregunta5": {
-            "pregunta": "¿Cuándo se puede decir que estás de novio con alguien?",
+            "pregunta": "Un lugar en el que puede haber una sala de espera",
             "opciones": [
-                "CONOCÉS FAMILIA/AMIGOS",
-                "DICEN 'TE AMO'",
-                "SOLO SALÍS CON ÉL/ELLA",
-                "DEJA ALGO EN TU CASA",
-                "SUBEN FOTOS JUNTOS",
+                "MÉDICO/HOSPITAL/DENTISTA",
+                "BANCO",
+                "AEROPUERTO/TERMINAL",
+                "REPARTICIÓN PÚBLICA",
+                "PELUQUERÍA"
             ],
             "puntajes": [
-                "25",
-                "14",
-                "11",
-                "7",
-                "6"
+                "34",
+                "12",
+                "10",
+                "5",
+                "4"
             ]
         }
     }
